@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Madhusudan | Data Engineer Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root{
+
+--bg:#fbfbff;
+--text:#111;
+--secondary:#666;
+--card:rgba(255,255,255,.75);
+--border:rgba(0,0,0,.08);
+--purple:#8b2cff;
+--purple2:#c084fc;
+--glow:#8b2cff55;
+
+}
+
+
+/* [data-theme="dark"]{
+
+--bg:#050505;
+--text:#fff;
+--secondary:#aaa;
+--card:rgba(25,25,25,.75);
+--border:rgba(255,255,255,.1);
+
+} */
+ 
+[data-theme="dark"]{
+
+--bg:#050505;
+--text:#f5f5f7;
+--secondary:#a1a1aa;
+
+--card:rgba(20,20,20,.85);
+--border:rgba(255,255,255,.15);
+
+}
+
+
+[data-theme="dark"] .tags span{
+
+background:#222;
+color:#fff;
+
+}
+
+
+[data-theme="dark"] .badge{
+
+background:#241044;
+color:#c084fc;
+
+}
+
+
+[data-theme="dark"] .feature div{
+
+background:rgba(139,44,255,.15);
+color:#fff;
+
+}
+
+
+[data-theme="dark"] .secondary{
+
+color:#c084fc;
+
+}
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+
+
+html{
+scroll-behavior:smooth;
+}
+
+
+
+body{
+
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+transition:.4s;
+
+}
+
+
+/* animated background */
+
+
+body::before{
+
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,var(--purple2),transparent 60%);
+top:-200px;
+left:-200px;
+filter:blur(80px);
+opacity:.35;
+z-index:-1;
+
+}
+
+
+
+
+header{
+
+position:sticky;
+top:0;
+z-index:999;
+
+backdrop-filter:blur(20px);
+
+background:rgba(255,255,255,.45);
+
+border-bottom:1px solid var(--border);
+
+}
+
+
+
+[data-theme="dark"] header{
+
+background:rgba(0,0,0,.45);
+
+}
+
+
+
+.nav-container{
+
+max-width:1150px;
+height:70px;
+margin:auto;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:0 25px;
+
+}
+
+
+.logo{
+
+font-weight:800;
+font-size:20px;
+
+}
+
+
+.nav-links{
+
+display:flex;
+align-items:center;
+gap:28px;
+
+}
+
+
+.nav-links a{
+
+text-decoration:none;
+color:var(--text);
+font-size:14px;
+
+}
+
+
+
+.theme-toggle{
+
+background:none;
+border:0;
+cursor:pointer;
+font-size:20px;
+color:var(--text);
+
+}
+
+
+
+/* common */
+
+
+section{
+
+max-width:1150px;
+margin:auto;
+padding:100px 25px;
+
+}
+
+
+
+
+/* HERO */
+
+
+.hero{
+
+min-height:90vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+flex-direction:column;
+
+}
+
+
+
+.profile{
+
+width:130px;
+height:130px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:4px solid var(--purple);
+
+box-shadow:
+0 0 40px var(--glow);
+
+margin-bottom:35px;
+
+animation:float 4s infinite;
+
+}
+
+
+
+@keyframes float{
+
+50%{
+transform:translateY(-15px);
+}
+
+}
+
+
+
+
+.badge{
+
+background:#eee5ff;
+
+color:var(--purple);
+
+padding:8px 20px;
+
+border-radius:30px;
+
+font-size:13px;
+
+margin-bottom:25px;
+
+}
+
+
+
+h1{
+
+font-size:70px;
+
+line-height:1;
+
+letter-spacing:-3px;
+
+}
+
+
+.hero h2{
+
+max-width:700px;
+
+font-size:24px;
+
+color:var(--secondary);
+
+margin:25px auto;
+
+font-weight:400;
+
+}
+
+
+
+.buttons{
+
+display:flex;
+
+gap:20px;
+
+}
+
+
+
+.btn{
+
+padding:14px 30px;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+
+
+.primary{
+
+background:var(--purple);
+
+color:white;
+
+}
+
+
+.secondary{
+
+border:1px solid var(--purple);
+
+color:var(--purple);
+
+}
+
+
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 15px 30px var(--glow);
+
+}
+
+
+
+
+/* headings */
+
+
+.title{
+
+text-align:center;
+
+font-size:40px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.subtitle{
+
+text-align:center;
+
+color:var(--secondary);
+
+margin-bottom:50px;
+
+}
+
+
+
+/* skills */
+
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.card{
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:25px;
+
+padding:35px;
+
+backdrop-filter:blur(20px);
+
+transition:.4s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 30px 60px rgba(0,0,0,.15);
+
+}
+
+
+
+.card h3{
+
+color:var(--purple);
+
+margin-bottom:20px;
+
+}
+
+
+
+.tags span{
+
+display:inline-block;
+
+background:#eee;
+
+padding:8px 15px;
+
+border-radius:30px;
+
+margin:5px;
+
+font-size:13px;
+
+}
+
+
+
+
+/* projects */
+
+
+.project{
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:30px;
+
+padding:45px;
+
+margin-bottom:35px;
+
+transition:.4s;
+
+}
+
+
+
+.project:hover{
+
+transform:scale(1.02);
+
+}
+
+
+
+.project h3{
+
+font-size:28px;
+
+margin-bottom:15px;
+
+}
+
+
+.project p{
+
+color:var(--secondary);
+
+line-height:1.7;
+
+}
+
+
+
+.feature{
+
+margin-top:20px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:15px;
+
+}
+
+
+
+.feature div{
+
+padding:15px;
+
+background:rgba(139,44,255,.08);
+
+border-radius:15px;
+
+}
+
+
+
+
+.project a{
+
+display:inline-block;
+
+margin-top:25px;
+
+color:var(--purple);
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+
+
+/* contact */
+
+
+.contact{
+
+text-align:center;
+
+}
+
+
+
+.contact-box{
+
+background:var(--card);
+
+border-radius:30px;
+
+padding:60px;
+
+border:1px solid var(--border);
+
+}
+
+
+
+footer{
+
+text-align:center;
+
+padding:40px;
+
+color:var(--secondary);
+
+}
+
+
+
+
+@media(max-width:700px){
+
+h1{
+
+font-size:42px;
+
+}
+
+
+.nav-links a{
+
+display:none;
+
+}
+
+
+
+.hero h2{
+
+font-size:18px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+<div class="nav-container">
+
+<div class="logo">
+Madhusudan
+</div>
+
+
+<nav class="nav-links">
+
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+
+
+<button class="theme-toggle" onclick="toggleTheme()">
+☾
+</button>
+
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+
+
+<section class="hero" id="about">
+
+
+
+
+<img class="profile"
+src="https://pics.craiyon.com/2023-10-19/ebd05cc8b06f4c439bccef6994f74fc1.webp">
+
+<div class="badge">
+Open To Work
+</div>
+
+
+<h1>
+Hi, I'm Madhusudan
+</h1>
+
+
+<h2>
+
+Aspiring Data Engineer | SQL Developer | PLSQL Developer building scalable databases and analytics solutions.
+
+</h2>
+
+
+
+<div class="buttons">
+
+<a class="btn primary" href="#projects">
+View Projects
+</a>
+
+
+<a class="btn secondary" href="#contact">
+Contact
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section id="skills">
+
+
+<h2 class="title">
+Technical Expertise
+</h2>
+
+
+<p class="subtitle">
+Database • Cloud • Analytics • Engineering
+</p>
+
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<h3>
+Programming
+</h3>
+
+<div class="tags">
+
+<span>SQL</span>
+<span>PL/SQL</span>
+<span>Python</span>
+<span>Unix</span>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+Database
+</h3>
+
+
+<div class="tags">
+
+<span>Oracle</span>
+<span>SQL Developer</span>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+Cloud & Big Data
+</h3>
+
+
+<div class="tags">
+
+<span>Azure</span>
+<span>ADF</span>
+<span>Databricks</span>
+<span>PySpark</span>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Tools
+</h3>
+
+
+<div class="tags">
+
+<span>PowerBI</span>
+<span>Excel</span>
+<span>Git</span>
+<span>Github</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+<section id="projects">
+
+<h2 class="title">
+ Projects
+</h2>
+
+<p class="subtitle">
+Real-world database engineering and automation solutions
+</p>
+
+
+
+<div class="project">
+
+
+<h3>
+AI Interview Database System
+</h3>
+
+
+<p>
+
+A database-driven AI interview management platform designed for candidate evaluation,
+ranking automation, secure data handling and performance tracking.
+
+</p>
+
+
+
+<div class="feature">
+
+<div>
+✓ Automated candidate scoring
+</div>
+
+<div>
+✓ PL/SQL automation workflows
+</div>
+
+<div>
+✓ Database triggers for validation
+</div>
+
+<div>
+✓ Query optimization techniques
+</div>
+
+</div>
+
+
+
+<a href="https://github.com/madhusudan113" target="_blank">
+
+View Repository →
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+<div class="project">
+
+
+<h3>
+Smart Railway Ticket Optimization Engine
+</h3>
+
+
+<p>
+
+High-performance railway booking analytics system focused on passenger management,
+ticket availability analysis and revenue optimization.
+
+</p>
+
+
+
+<div class="feature">
+
+
+<div>
+✓ Passenger management module
+</div>
+
+
+<div>
+✓ Booking analytics
+</div>
+
+
+<div>
+✓ SQL optimization
+</div>
+
+
+<div>
+✓ Automated reports
+</div>
+
+
+</div>
+
+
+
+<a href="https://github.com/madhusudan113" target="_blank">
+
+View Repository →
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="project">
+
+
+<h3>
+Digital Payment Fraud Detection System
+</h3>
+
+
+<p>
+
+Transaction monitoring framework using SQL and PL/SQL logic to identify suspicious
+payment activities and maintain secure transaction history.
+
+</p>
+
+
+
+<div class="feature">
+
+
+<div>
+✓ Real-time transaction checking
+</div>
+
+
+<div>
+✓ Trigger-based alerts
+</div>
+
+
+<div>
+✓ Fraud rule engine
+</div>
+
+
+<div>
+✓ Historical analysis
+</div>
+
+
+</div>
+
+
+
+<a href="https://github.com/madhusudan113" target="_blank">
+
+View Repository →
+
+</a>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="contact">
+
+
+<div class="contact-box">
+
+
+<h2 class="title">
+
+Let's Connect
+
+</h2>
+
+
+<p class="subtitle">
+
+Open for Data Engineering, SQL Developer and Analytics opportunities.
+
+</p>
+
+
+
+
+<div class="buttons" style="justify-content:center">
+
+
+<a class="btn primary"
+href="mailto:madhu@gmail.com">
+
+Email
+
+</a>
+
+
+
+
+<a class="btn secondary"
+href="https://linkedin.com"
+target="_blank">
+
+LinkedIn
+
+</a>
+
+
+
+<a class="btn secondary"
+href="https://github.com/madhusudan113"
+target="_blank">
+
+GitHub
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+© 2026 Madhusudan | Built with passion for Data Engineering
+
+</footer>
+
+
+
+
+
+<script>
+
+
+// Dark Mode
+
+
+function toggleTheme(){
+
+
+let html=document.documentElement;
+
+
+if(html.getAttribute("data-theme")=="dark"){
+
+
+html.removeAttribute("data-theme");
+
+
+localStorage.setItem("theme","light");
+
+
+}
+
+else{
+
+
+html.setAttribute("data-theme","dark");
+
+
+localStorage.setItem("theme","dark");
+
+
+}
+
+
+}
+
+
+
+
+
+// remember theme
+
+
+if(localStorage.getItem("theme")=="dark"){
+
+
+document.documentElement.setAttribute(
+"data-theme",
+"dark"
+);
+
+
+}
+
+
+
+
+
+
+
+// Mouse glow effect
+
+
+const glow=document.createElement("div");
+
+
+glow.style.position="fixed";
+
+glow.style.width="250px";
+
+glow.style.height="250px";
+
+glow.style.borderRadius="50%";
+
+glow.style.background=
+"radial-gradient(circle,#8b2cff55,transparent 70%)";
+
+glow.style.pointerEvents="none";
+
+glow.style.zIndex="-1";
+
+
+document.body.appendChild(glow);
+
+
+
+document.addEventListener(
+"mousemove",
+(e)=>{
+
+
+glow.style.left=e.clientX-125+"px";
+
+glow.style.top=e.clientY-125+"px";
+
+
+}
+
+);
+
+
+
+
+
+
+
+// reveal animation
+
+
+const observer=new IntersectionObserver(
+(entries)=>{
+
+
+entries.forEach(
+(entry)=>{
+
+
+if(entry.isIntersecting){
+
+
+entry.target.style.opacity=1;
+
+entry.target.style.transform="translateY(0)";
+
+
+}
+
+
+}
+
+);
+
+
+},
+{
+threshold:.15
+}
+
+);
+
+
+
+
+document.querySelectorAll(
+".card,.project,.contact-box"
+)
+.forEach(
+(el)=>{
+
+
+el.style.opacity=0;
+
+el.style.transform="translateY(40px)";
+
+el.style.transition="1s";
+
+
+observer.observe(el);
+
+
+}
+
+);
+
+
+
+</script>
+
+
+</body>
+
+</html>
