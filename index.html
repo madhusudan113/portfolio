@@ -27,15 +27,7 @@
 }
 
 
-/* [data-theme="dark"]{
 
---bg:#050505;
---text:#fff;
---secondary:#aaa;
---card:rgba(25,25,25,.75);
---border:rgba(255,255,255,.1);
-
-} */
  
 [data-theme="dark"]{
 
@@ -396,95 +388,442 @@ margin-bottom:50px;
 }
 
 
+/* ===================================
+   PREMIUM SKILLS SECTION
+=================================== */
 
-/* skills */
+#skills{
+position:relative;
+}
 
+#skills .title{
+font-size:52px;
+font-weight:800;
+letter-spacing:-2px;
+margin-bottom:12px;
+}
+
+#skills .subtitle{
+max-width:750px;
+margin:auto;
+margin-bottom:60px;
+font-size:18px;
+color:var(--secondary);
+line-height:1.7;
+}
+
+/* GRID */
 
 .grid{
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
 
-gap:25px;
+gap:30px;
 
 }
 
+/* CARD */
 
+.skill-card{
 
-.card{
+position:relative;
+
+overflow:hidden;
 
 background:var(--card);
 
 border:1px solid var(--border);
 
-border-radius:25px;
+border-radius:28px;
 
 padding:35px;
 
-backdrop-filter:blur(20px);
+backdrop-filter:blur(25px);
 
-transition:.4s;
-
-}
-
-
-
-.card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 30px 60px rgba(0,0,0,.15);
+transition:.4s ease;
 
 }
 
+.skill-card:hover{
 
+transform:translateY(-12px);
 
-.card h3{
+box-shadow:
+0 30px 60px rgba(0,0,0,.12);
 
-color:var(--purple);
+border-color:rgba(139,44,255,.25);
+
+}
+
+/* TOP GLOW LINE */
+
+.skill-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:5px;
+
+background:
+linear-gradient(
+90deg,
+#8b2cff,
+#c084fc
+);
+
+}
+
+/* ICON */
+
+.skill-icon{
+
+width:70px;
+height:70px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:32px;
+
+border-radius:20px;
+
+margin-bottom:25px;
+
+background:
+linear-gradient(
+135deg,
+rgba(139,44,255,.15),
+rgba(192,132,252,.15)
+);
+
+border:1px solid rgba(139,44,255,.15);
+
+}
+
+/* HEADING */
+
+.skill-card h3{
+
+font-size:24px;
+
+font-weight:700;
 
 margin-bottom:20px;
 
+letter-spacing:-0.5px;
+
 }
 
+/* TAG AREA */
 
+.skill-card .tags{
 
-.tags span{
+display:flex;
 
-display:inline-block;
+flex-wrap:wrap;
 
-background:#eee;
+gap:10px;
 
-padding:8px 15px;
+}
 
-border-radius:30px;
+/* SKILL TAG */
 
-margin:5px;
+.skill-card .tags span{
+
+padding:10px 16px;
+
+border-radius:50px;
 
 font-size:13px;
 
+font-weight:600;
+
+background:
+rgba(139,44,255,.08);
+
+border:
+1px solid rgba(139,44,255,.12);
+
+transition:.3s ease;
+
+cursor:default;
+
+}
+
+.skill-card .tags span:hover{
+
+transform:translateY(-3px);
+
+background:
+linear-gradient(
+135deg,
+#8b2cff,
+#b95cff
+);
+
+color:#fff;
+
+box-shadow:
+0 10px 25px rgba(139,44,255,.3);
+
+}
+
+/* DARK MODE */
+
+[data-theme="dark"] .skill-card{
+
+background:
+rgba(20,20,20,.85);
+
+}
+
+[data-theme="dark"] .skill-card:hover{
+
+box-shadow:
+0 30px 70px rgba(0,0,0,.45);
+
+}
+
+[data-theme="dark"] .skill-card .tags span{
+
+background:
+rgba(139,44,255,.12);
+
+border:
+1px solid rgba(139,44,255,.15);
+
+}
+
+/* FLOATING BACKGROUND */
+
+#skills::before{
+
+content:"";
+
+position:absolute;
+
+width:400px;
+height:400px;
+
+top:100px;
+left:-150px;
+
+background:
+radial-gradient(
+circle,
+rgba(139,44,255,.18),
+transparent 70%
+);
+
+filter:blur(80px);
+
+z-index:-1;
+
+}
+
+#skills::after{
+
+content:"";
+
+position:absolute;
+
+width:350px;
+height:350px;
+
+bottom:50px;
+right:-100px;
+
+background:
+radial-gradient(
+circle,
+rgba(192,132,252,.15),
+transparent 70%
+);
+
+filter:blur(80px);
+
+z-index:-1;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+#skills .title{
+font-size:38px;
+}
+
+.skill-card{
+padding:28px;
+}
+
+.skill-icon{
+width:60px;
+height:60px;
+font-size:28px;
+}
+
+.skill-card h3{
+font-size:20px;
+}
+
+}
+
+
+/* ==========================
+   PROJECT SECTION
+========================== */
+
+.project-tabs{
+
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+
+margin-bottom:60px;
+
+padding:10px;
+
+width:fit-content;
+
+margin-left:auto;
+margin-right:auto;
+
+background:rgba(255,255,255,.6);
+
+backdrop-filter:blur(20px);
+
+border:1px solid var(--border);
+
+border-radius:60px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+[data-theme="dark"] .project-tabs{
+
+background:rgba(20,20,20,.9);
+
+border:1px solid rgba(255,255,255,.08);
+
 }
 
 
 
 
-/* projects */
+.tab-btn{
 
+padding:14px 28px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:15px;
+
+font-weight:700;
+
+background:transparent;
+
+color:var(--text);
+
+transition:.35s ease;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+.tab-btn:hover{
+
+transform:translateY(-2px);
+
+}
+
+
+
+.tab-btn.active{
+
+background:linear-gradient(
+135deg,
+#8b2cff,
+#b95cff
+);
+
+color:white;
+
+box-shadow:
+0 15px 35px rgba(139,44,255,.35);
+
+}
+
+
+
+/* ==========================
+   PROJECT CARD
+========================== */
 
 .project{
+
+position:relative;
+
+overflow:hidden;
 
 background:var(--card);
 
 border:1px solid var(--border);
 
-border-radius:30px;
+border-radius:32px;
 
 padding:45px;
 
 margin-bottom:35px;
 
-transition:.4s;
+backdrop-filter:blur(20px);
+
+transition:.4s ease;
+
+}
+
+
+
+.project::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:5px;
+
+background:linear-gradient(
+90deg,
+#8b2cff,
+#c084fc
+);
 
 }
 
@@ -492,40 +831,70 @@ transition:.4s;
 
 .project:hover{
 
-transform:scale(1.02);
+transform:translateY(-10px);
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.12);
+
+border-color:rgba(139,44,255,.25);
 
 }
 
 
+
+[data-theme="dark"] .project:hover{
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.4);
+
+}
+
+
+
+/* PROJECT TITLE */
 
 .project h3{
 
-font-size:28px;
+font-size:30px;
 
-margin-bottom:15px;
+font-weight:800;
+
+margin-bottom:18px;
+
+letter-spacing:-1px;
 
 }
 
+
+
+/* PROJECT DESCRIPTION */
 
 .project p{
 
+font-size:16px;
+
+line-height:1.8;
+
 color:var(--secondary);
 
-line-height:1.7;
+margin-bottom:30px;
 
 }
 
 
 
-.feature{
+/* FEATURES GRID */
 
-margin-top:20px;
+.feature{
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
 
 gap:15px;
+
+margin-top:20px;
 
 }
 
@@ -533,31 +902,151 @@ gap:15px;
 
 .feature div{
 
-padding:15px;
+padding:16px 18px;
 
-background:rgba(139,44,255,.08);
+border-radius:16px;
 
-border-radius:15px;
+background:rgba(139,44,255,.07);
+
+border:1px solid rgba(139,44,255,.08);
+
+font-size:14px;
+
+font-weight:500;
+
+transition:.3s;
 
 }
 
 
 
+.feature div:hover{
+
+transform:translateY(-3px);
+
+background:rgba(139,44,255,.12);
+
+}
+
+
+
+[data-theme="dark"] .feature div{
+
+background:rgba(139,44,255,.12);
+
+border:1px solid rgba(139,44,255,.15);
+
+}
+
+
+
+/* REPOSITORY BUTTON */
 
 .project a{
 
-display:inline-block;
+display:inline-flex;
 
-margin-top:25px;
+align-items:center;
+
+gap:10px;
+
+margin-top:30px;
+
+padding:14px 24px;
+
+border-radius:14px;
+
+background:rgba(139,44,255,.08);
+
+border:1px solid rgba(139,44,255,.15);
 
 color:var(--purple);
 
+font-weight:700;
+
 text-decoration:none;
 
-font-weight:600;
+transition:.3s;
 
 }
 
+
+
+.project a:hover{
+
+background:var(--purple);
+
+color:white;
+
+transform:translateY(-3px);
+
+box-shadow:
+0 12px 25px rgba(139,44,255,.35);
+
+}
+
+
+
+/* SECTION TITLE */
+
+#projects .title{
+
+font-size:52px;
+
+font-weight:800;
+
+letter-spacing:-2px;
+
+margin-bottom:10px;
+
+}
+
+
+
+#projects .subtitle{
+
+font-size:18px;
+
+max-width:700px;
+
+margin:auto;
+margin-bottom:60px;
+
+color:var(--secondary);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.project{
+
+padding:30px;
+
+}
+
+.project h3{
+
+font-size:24px;
+
+}
+
+.project-tabs{
+
+width:100%;
+
+}
+
+.tab-btn{
+
+flex:1;
+
+}
+
+}
 
 
 /* contact */
@@ -710,36 +1199,35 @@ Contact
 
 
 
-
 <section id="skills">
-
 
 <h2 class="title">
 Technical Expertise
 </h2>
 
-
 <p class="subtitle">
-Database • Cloud • Analytics • Engineering
+Technologies, tools and platforms I use to design, build and optimize data-driven solutions.
 </p>
-
-
 
 <div class="grid">
 
 
-<div class="card">
+<div class="card skill-card">
 
-<h3>
-Programming
-</h3>
+<div class="skill-icon">🗄️</div>
+
+<h3>Database Development</h3>
 
 <div class="tags">
 
-<span>SQL</span>
+<span>Oracle SQL</span>
 <span>PL/SQL</span>
-<span>Python</span>
-<span>Unix</span>
+<span>Stored Procedures</span>
+<span>Functions</span>
+<span>Packages</span>
+<span>Triggers</span>
+<span>Views</span>
+<span>Indexes</span>
 
 </div>
 
@@ -747,253 +1235,290 @@ Programming
 
 
 
+<div class="card skill-card">
 
+<div class="skill-icon">📊</div>
 
-<div class="card">
-
-<h3>
-Database
-</h3>
-
+<h3>Data Engineering</h3>
 
 <div class="tags">
 
-<span>Oracle</span>
+<span>Azure Data Factory</span>
+<span>Databricks</span>
+<span>PySpark</span>
+<span>Delta Lake</span>
+<span>ETL Pipelines</span>
+<span>Data Lakehouse</span>
+<span>Data Modeling</span>
+
+</div>
+
+</div>
+
+
+
+<div class="card skill-card">
+
+<div class="skill-icon">☁️</div>
+
+<h3>Cloud Platform</h3>
+
+<div class="tags">
+
+<span>Microsoft Azure</span>
+<span>ADLS Gen2</span>
+<span>Azure SQL</span>
+<span>ADF</span>
+
+</div>
+
+</div>
+
+
+
+<div class="card skill-card">
+
+<div class="skill-icon">🐍</div>
+
+<h3>Programming</h3>
+
+<div class="tags">
+
+<span>Python</span>
+<span>PySpark</span>
+<span>SQL</span>
+<span>Unix Shell</span>
+
+</div>
+
+</div>
+
+
+
+<div class="card skill-card">
+
+<div class="skill-icon">📈</div>
+
+<h3>Analytics & BI</h3>
+
+<div class="tags">
+
+<span>Power BI</span>
+<span>Excel</span>
+<span>Data Visualization</span>
+<span>Dashboarding</span>
+<span>Reporting</span>
+
+</div>
+
+</div>
+
+
+
+<div class="card skill-card">
+
+<div class="skill-icon">⚡</div>
+
+<h3>DevOps & Tools</h3>
+
+<div class="tags">
+
+<span>Git</span>
+<span>GitHub</span>
+<span>VS Code</span>
 <span>SQL Developer</span>
 
 </div>
 
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h3>
-Cloud & Big Data
-</h3>
-
-
-<div class="tags">
-
-<span>Azure</span>
-<span>ADF</span>
-<span>Databricks</span>
-<span>PySpark</span>
-
 </div>
 
 </div>
-
-
-
-<div class="card">
-
-<h3>
-Tools
-</h3>
-
-
-<div class="tags">
-
-<span>PowerBI</span>
-<span>Excel</span>
-<span>Git</span>
-<span>Github</span>
-
-</div>
-
-
-</div>
-
-
-</div>
-
 
 </section>
+
+
+
+
+
+
 <section id="projects">
 
 <h2 class="title">
- Projects
+Projects
 </h2>
 
 <p class="subtitle">
-Real-world database engineering and automation solutions
+Explore my SQL Development and Data Engineering Projects
 </p>
+
+<div class="project-tabs">
+
+<button class="tab-btn active"
+onclick="showProjects('sql')">
+SQL Developer
+</button>
+
+<button class="tab-btn"
+onclick="showProjects('de')">
+Data Engineer
+</button>
+
+</div>
+
+<!-- SQL PROJECTS -->
+
+<div id="sql-projects">
+
+<div class="project">
+
+<h3>AI Interview Database System</h3>
+
+<p>
+The system helps organizations manage interview processes, rank candidates, identify suspicious interview behavior, generate AI-driven feedback, analyze skill gaps, and support data-driven hiring decisions.</p>
+
+<div class="feature">
+
+<div>✓ Candidate Ranking</div>
+<div>✓ Automated Scoring</div>
+<div>✓ Database Triggers</div>
+<div>✓ PL/SQL Procedures</div>
+
+
+</div>
+
+<!-- <a href="#">View Repository →</a> -->
+ <a href="https://github.com/madhusudan113/AI-Interview-Database-System-">
+View Repository
+<svg width="18" height="18" fill="none" stroke="currentColor"
+stroke-width="2" viewBox="0 0 24 24">
+<path d="M5 12h14"/>
+<path d="M13 5l7 7-7 7"/>
+</svg>
+</a>
+
+</div>
 
 
 
 <div class="project">
 
-
-<h3>
-AI Interview Database System
-</h3>
-
+<h3>Enterprise Fraud Detection & Risk Management System</h3>
 
 <p>
-
-A database-driven AI interview management platform designed for candidate evaluation,
-ranking automation, secure data handling and performance tracking.
-
+Fraud detection framework using SQL and PL/SQL.
 </p>
 
+<div class="feature">
+<div>✓ Fraud Rules Engine</div>
+<div>✓ Trigger Alerts</div>
+<div>✓ Risk Scoring</div>
+<div>✓ Audit Logs</div>
+</div>
 
+<!-- <a href="#">View Repository →</a> -->
+<a href="https://github.com/madhusudan113/ENTERPRISE-FRAUD-DETECTION-RISK-MANAGEMENT-SYSTEM">
+View Repository
+<svg width="18" height="18" fill="none" stroke="currentColor"
+stroke-width="2" viewBox="0 0 24 24">
+<path d="M5 12h14"/>
+<path d="M13 5l7 7-7 7"/>
+</svg>
+</a>
+</div>
+
+
+
+
+
+</div>
+
+
+
+<!-- DATA ENGINEER PROJECTS -->
+
+<div id="de-projects" style="display:none;">
+
+<div class="project">
+
+<h3>E-Commerce Data Lakehouse Platform</h3>
+
+<p>
+This project demonstrates the design and implementation of an end-to-end E-Commerce Data Lakehouse using Databricks, PySpark, Delta Lake, Unity Catalog, SQL, and Power BI.
+</p>
 
 <div class="feature">
-
-<div>
-✓ Automated candidate scoring
-</div>
-
-<div>
-✓ PL/SQL automation workflows
-</div>
-
-<div>
-✓ Database triggers for validation
-</div>
-
-<div>
-✓ Query optimization techniques
-</div>
-
+<div>✓ Databricks Free Edition</div>
+<div>✓ PySpark</div>
+<div>✓ Delta Lake</div>
+<div>✓ Unity Catalog</div>
+<div>✓ SQL</div>
+<div>✓ Power BI</div>
+<div>✓ GitHub</div>
 </div>
 
 
 
-<a href="https://github.com/madhusudan113" target="_blank">
-
-View Repository →
-
+<!-- <a href="#">Coming Soon</a> -->
+<a href="https://github.com/madhusudan113/ecommerce-data-lakehouse.git">
+View Repository
+<svg width="18" height="18" fill="none" stroke="currentColor"
+stroke-width="2" viewBox="0 0 24 24">
+<path d="M5 12h14"/>
+<path d="M13 5l7 7-7 7"/>
+</svg>
 </a>
-
-
 </div>
-
-
-
 
 
 
 <div class="project">
 
-
-<h3>
-Smart Railway Ticket Optimization Engine
-</h3>
-
+<h3>Real-Time Stock Market Analytics</h3>
 
 <p>
-
-High-performance railway booking analytics system focused on passenger management,
-ticket availability analysis and revenue optimization.
-
+Streaming analytics platform using PySpark and Delta Lake.
 </p>
 
-
-
 <div class="feature">
-
-
-<div>
-✓ Passenger management module
+<div>✓ Streaming Pipelines</div>
+<div>✓ Delta Lake</div>
+<div>✓ PySpark</div>
+<div>✓ Dashboarding</div>
 </div>
 
-
-<div>
-✓ Booking analytics
-</div>
-
-
-<div>
-✓ SQL optimization
-</div>
-
-
-<div>
-✓ Automated reports
-</div>
-
-
-</div>
-
-
-
-<a href="https://github.com/madhusudan113" target="_blank">
-
-View Repository →
-
+<!-- <a href="#">Coming Soon</a> -->
+<a href="#">
+View Repository
+<svg width="18" height="18" fill="none" stroke="currentColor"
+stroke-width="2" viewBox="0 0 24 24">
+<path d="M5 12h14"/>
+<path d="M13 5l7 7-7 7"/>
+</svg>
 </a>
-
-
-
 </div>
-
-
-
-
-
 
 
 
 <div class="project">
 
-
-<h3>
-Digital Payment Fraud Detection System
-</h3>
-
+<h3>Customer 360 Data Platform</h3>
 
 <p>
-
-Transaction monitoring framework using SQL and PL/SQL logic to identify suspicious
-payment activities and maintain secure transaction history.
-
+Unified customer analytics and reporting solution.
 </p>
 
-
-
 <div class="feature">
-
-
-<div>
-✓ Real-time transaction checking
+<div>✓ Data Integration</div>
+<div>✓ ETL Pipelines</div>
+<div>✓ Data Quality</div>
+<div>✓ Reporting</div>
 </div>
 
-
-<div>
-✓ Trigger-based alerts
-</div>
-
-
-<div>
-✓ Fraud rule engine
-</div>
-
-
-<div>
-✓ Historical analysis
-</div>
-
+<a href="#">Coming Soon</a>
 
 </div>
 
-
-
-<a href="https://github.com/madhusudan113" target="_blank">
-
-View Repository →
-
-</a>
-
-
-
 </div>
-
 
 </section>
 
@@ -1029,7 +1554,7 @@ Open for Data Engineering, SQL Developer and Analytics opportunities.
 
 
 <a class="btn primary"
-href="mailto:madhusudan8055@gmail.com">
+href="mailto:madhu@gmail.com">
 
 Email
 
@@ -1246,6 +1771,41 @@ observer.observe(el);
 }
 
 );
+
+//project
+function showProjects(type){
+
+const sqlProjects =
+document.getElementById("sql-projects");
+
+const deProjects =
+document.getElementById("de-projects");
+
+const buttons =
+document.querySelectorAll(".tab-btn");
+
+buttons.forEach(btn =>
+btn.classList.remove("active")
+);
+
+if(type === "sql"){
+
+sqlProjects.style.display = "block";
+deProjects.style.display = "none";
+
+buttons[0].classList.add("active");
+
+}
+else{
+
+sqlProjects.style.display = "none";
+deProjects.style.display = "block";
+
+buttons[1].classList.add("active");
+
+}
+
+}
 
 
 
